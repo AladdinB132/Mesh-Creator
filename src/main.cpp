@@ -314,7 +314,11 @@ int main(int argc, char *argv[])
     int faceCounter = 0;
     int areteLen = currArete;
     cout << areteLen << " edges were detected" << endl;
-    int printEach = stoi(argv[6]);
+    int printEach = 100;
+    if(hasArgs)
+    {
+        printEach = stoi(argv[6]);
+    }
     for (int a = 0; a < areteLen; a++)
     {
         for (int b = 0; b < areteLen; b++)
