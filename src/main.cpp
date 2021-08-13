@@ -2,7 +2,6 @@
 #include <math.h>
 #include <fstream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
@@ -275,54 +274,14 @@ int main(int argc, char *argv[])
         theFile << "v " << points[i].x << " " << points[i].y << " " << points[i].z << endl;
     }
 
-
     cout << "Detecting edges" << endl;
-    vector<float> dists;
-    for (int i = 0; i < pts; i++)
-    {
-        for (int j = 0; j < pts; j++)
-        {
-            // Une arête est composée de deux points distincts
-            if (i == j)
-                continue;
 
-            arete a = {points[i], points[j]};
-             bool shouldnt_create = false;
-            for (int k = 0; k < currArete; k++)
-            {
-                if (aretes[k] == a)
-                {
-                    shouldnt_create = true;
-                    break;
-                }
-            }
-
-            if (!shouldnt_create)
-            {
-                float dist = a.dist();
-            if(dist <= 0)
-                continue;
-            dists.push_back(dist);
-            }
-        }
-    }
-    double tmp = 0.0;
-    for(int i = 0; i < dists.size(); i++)
-    {
-        tmp += dists[i];
-    }
-    tmp /= dists.size();
-    sort(dists.begin(), dists.end());
-    cout << dists.size() << " distance" << endl;
-    cout << tmp << " moyenne des distances" << endl;
-    cout << dists[0] << " plus petite distance" << endl;
-    cout << dists[dists.size()-1] << " plus grande distance" << endl;
     // Creer les aretes
     for (int i = 0; i < pts; i++)
     {
         for (int j = 0; j < pts; j++)
         {
-            // Une arête est composée de deux points distincts
+            // Une arÃªte est composÃ©e de deux points distincts
             if (i == j)
                 continue;
 
@@ -374,7 +333,7 @@ int main(int argc, char *argv[])
                         cout << "Assembling face number " << currFace << endl;
                     }
 
-                    // Une face est composée de trois arêtes différentes
+                    // Une face est composÃ©e de trois arÃªtes diffÃ©rentes
 
                     if(a == b || b == c || c == a)
                         continue;
@@ -391,11 +350,11 @@ int main(int argc, char *argv[])
                     if(p1 == p2 || p2 == p3 || p3 == p1)
                         continue;
 
-                    // On teste si les 3 faces forment une ligne fermée
+                    // On teste si les 3 faces forment une ligne fermÃ©e
 
                     if (A.touches(B) && B.touches(C) && C.touches(A))
                     {
-                        // Dans ce cas, on ajoute peut-être la face
+                        // Dans ce cas, on ajoute peut-Ãªtre la face
 
                         face f = {p1, p2, p3};
 
