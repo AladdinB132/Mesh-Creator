@@ -12,8 +12,9 @@ Démarrer le programme en tappant "meshCreator.exe" dans l'invite de commande
 
 2. Différents paramètres sont à renseigner :
 	- Le programme
-	- Type du fichier d'entrée : -- 0 pour des coordonnées brut (x,y,z)
-			   	     -- 1 pour un fichier du lidar (distance, angle, angle, qualité)
+	- Type du fichier d'entrée : 
+		- 0 pour des coordonnées brut (x,y,z)
+		- 1 pour un fichier du lidar (distance, angle, angle, qualité)
 	- Fichier d'entrée (fichier que le programme doit traiter)
 	- Fichier de sortie (en .obj !) (emplacement du fichier qui sera créé à partir du fichier d'entrée)
 	- Distance minimale entre les points à relier pour la modélisation.
